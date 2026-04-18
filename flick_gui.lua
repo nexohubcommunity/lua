@@ -2426,7 +2426,7 @@ function Nexo:LaunchNxuzi(config)
 
     EnsureIconsReady(function()
         local success, Nxuzi = pcall(function()
-            return loadstring(game:HttpGet("https://raw.githubusercontent.com/mrcorpt-games/mrcorpt-game/refs/heads/master/library.lua"))()
+            return loadstring(game:HttpGet("https://raw.githubusercontent.com/mrcorpt-games/lua/refs/heads/main/flick_library.lua"))()
         end)
 
         if not success or not Nxuzi then
@@ -2440,7 +2440,7 @@ function Nexo:LaunchNxuzi(config)
         Nxuzi.provider = config.Provider
 
         -- 🔥 ADD THIS (your script URL directly)
-        Nxuzi.script_url = "https://raw.githubusercontent.com/mrcorpt-games/lua/refs/heads/main/flick_gui.lua"
+        Nxuzi.script_url = "https://raw.githubusercontent.com/mrcorpt-games/lua/refs/heads/main/flick.lua"
 
         -- 🔥 OVERRIDE LOAD FUNCTION (NO script_id NEEDED)
         function Nxuzi.load_script()
