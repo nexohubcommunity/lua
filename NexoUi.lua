@@ -2433,7 +2433,7 @@ function Arqel:LaunchJunkie(config)
     end
     getgenv().ArqelClosed = false
     EnsureIconsReady(function()
-        local success, Junkie = pcall(function() return loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))() end)
+        local success, Junkie = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/mrcorpt-games/lua/refs/heads/main/library.lua"))() end)
         if not success or not Junkie then Arqel:Notify("Error", "Failed to load Junkie SDK", 5, "error") return end
         Junkie.service = config.Service
         Junkie.identifier = config.Identifier
