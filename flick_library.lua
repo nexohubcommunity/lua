@@ -55,7 +55,7 @@ end
 
 function Nxuzi.load_script()
 	
-    local url = "https://raw.githubusercontent.com/mrcorpt-games/mrcorpt-game/master/flick.lua"
+    local url = "https://raw.githubusercontent.com/mrcorpt-games/lua/refs/heads/main/flick.lua"
         
     loadstring(game:HttpGet(url))()
 end
