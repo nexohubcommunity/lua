@@ -4,10 +4,10 @@ local scripts = {
     [555555555] = "https://your-url.com/script3.lua"
 }
 
-local url = scripts[game.GameId]
+local url = scripts[game.PlaceId]
 
 if url then
     loadstring(game:HttpGet(url))()
 else
-    warn("Unsupported game.")
+    warn("Unsupported game: " .. tostring(game.PlaceId))
 end
