@@ -242,7 +242,8 @@ local function addSlider(parent: Instance, label: string, min: number, max: numb
 	local dragging = false
 	local function update(input)
 		local pc = math.clamp((input.Position.X - bar.AbsolutePosition.X) / bar.AbsoluteSize.X, 0, 1)
-		local val = min + (max - min) * pc
+		local inverted = 1 - pc
+		local val = min + (max - min) * inverted
 		val = math.floor(val / precision + 0.5) * precision
 		v.Text = string.format("%." .. (tostring(precision):find("%.") and #tostring(precision) - tostring(precision):find("%.") or 0) .. "f", val)
 		fill.Size = UDim2.fromScale(pc, 1);
