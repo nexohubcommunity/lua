@@ -461,6 +461,55 @@ eventEditor.Frame.Size = UDim2.new(1,0,1,0)
 maximizeHolder = function() Window:Maximize() end
 minimizeHolder = function() Window:Minimize() end
 
+-- Add this BEFORE the KeybindEditor creation
+local PARENT
+if get_hidden_gui or gethui then
+    local hiddenUI = get_hidden_gui or gethui
+    local Main = Instance.new("ScreenGui")
+    Main.Name = randomString()
+    Main.ResetOnSpawn = false
+    Main.DisplayOrder = 2147483647
+    Main.Parent = hiddenUI()
+    PARENT = Main
+elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
+    local Main = Instance.new("ScreenGui")
+    Main.Name = randomString()
+    Main.ResetOnSpawn = false
+    Main.DisplayOrder = 2147483647
+    syn.protect_gui(Main)
+    Main.Parent = COREGUI
+    PARENT = Main
+elseif COREGUI:FindFirstChild("RobloxGui") then
+    PARENT = COREGUI.RobloxGui
+else
+    local Main = Instance.new("ScreenGui")
+    Main.Name = randomString()
+    Main.ResetOnSpawn = false
+    Main.DisplayOrder = 2147483647
+    Main.Parent = COREGUI
+    PARENT = Main
+end
+ViewportTextBox.convert(Cmdbar_2).View.ZIndex = 10  -- Cmdbar_2 is nil!
+
+local shade1 = {}
+local shade2 = {}
+local shade3 = {}
+local text1 = {}
+local text2 = {}
+local scroll = {}
+local currentShade1 = Color3.fromRGB(36, 36, 37)
+local currentShade2 = Color3.fromRGB(46, 46, 47)
+local currentShade3 = Color3.fromRGB(78, 78, 79)
+local currentText1 = Color3.new(1, 1, 1)
+local currentText2 = Color3.new(0, 0, 0)
+local currentScroll = Color3.fromRGB(78, 78, 79)
+
+local ScaledHolder = Instance.new("Frame")
+ScaledHolder.Name = randomString()
+ScaledHolder.Size = UDim2.fromScale(1, 1)
+ScaledHolder.BackgroundTransparency = 1
+ScaledHolder.Parent = PARENT
+
 -- Keybind editor (popup)
 KeybindEditor = Instance.new("Frame")
 KeybindEditor.BackgroundTransparency = 1
