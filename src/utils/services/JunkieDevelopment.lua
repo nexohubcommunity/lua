@@ -1,11 +1,3 @@
-
-
---[[
-
-    Junkie Development API   |   
-
-]]
-
 local JunkieDevelopment = {}
 
 function JunkieDevelopment.New(ServiceId, ApiKey, Provider)
@@ -16,7 +8,6 @@ function JunkieDevelopment.New(ServiceId, ApiKey, Provider)
     local function ValidateKey(key)
         if not key or key == "" then
             print("No key provided!")
-            --game.Players.LocalPlayer:Kick("No key provided. Please get a key.")
             return false, "No key provided. Please get a key."
         end
 
@@ -40,14 +31,12 @@ function JunkieDevelopment.New(ServiceId, ApiKey, Provider)
         else
             local keyLink = JunkieProtected.GetKeyLink()
             print("Invalid key!")
-            --game.Players.LocalPlayer:Kick("Invalid key. Get one from: " .. keyLink)
             return false, "Invalid key. Get one from:" .. keyLink
         end                                                                                                            
     end
 
     local function copyLink()
         local link = JunkieProtected.GetKeyLink()                                                                                        
-        --print("Get your key: " .. link)                                                                                                
         if setclipboard then
             setclipboard(link)
         end
